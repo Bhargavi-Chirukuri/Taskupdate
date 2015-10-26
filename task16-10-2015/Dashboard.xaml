@@ -15,10 +15,9 @@
             <RowDefinition Height="auto" />
             <RowDefinition Height="auto"/>
         </Grid.RowDefinitions>
-        <Button x:Name="changepwdbtn" Content="Change Password" HorizontalAlignment="Left" Margin="132,95,0,0" VerticalAlignment="Top" Height="59" Width="231" FontSize="25"/>
-        <Button x:Name="savebtn" Content="Save" HorizontalAlignment="Left" Margin="428,271,0,0" VerticalAlignment="Top" Height="71" Width="232" FontSize="35" Click="savebtn_Click"/>
-        <PasswordBox x:Name="epwd" HorizontalAlignment="Left" Margin="697,103,0,0" VerticalAlignment="Top" Height="53" Width="352" PlaceholderText="Enter Existing password" FontSize="25"/>
-        <PasswordBox x:Name="npwd" HorizontalAlignment="Left" Margin="697,200,0,0" VerticalAlignment="Top" Height="54" Width="352" PlaceholderText="Enter new password" FontSize="25"/>
+        <Button x:Name="changepwdbtn" Content="Change Password" HorizontalAlignment="Left" Margin="132,95,0,0" VerticalAlignment="Top" Height="59" Width="231" FontSize="25" Click="changepwdbtn_Click"/>
+        <!--<Button x:Name="savebtn" Content="Save" HorizontalAlignment="Left" Margin="434,355,0,0" VerticalAlignment="Top" Height="71" Width="232" FontSize="35" Visibility="Collapsed"/>-->
+        <PasswordBox x:Name="npwd" HorizontalAlignment="Left" Margin="635,98,0,0" VerticalAlignment="Top" Height="54" Width="352" PlaceholderText="Enter new password" FontSize="25" Visibility="Collapsed" />
         <TextBlock x:Name="tblock" HorizontalAlignment="Left" Margin="84,33,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="65" Width="372" FontSize="50"/>
         <Button x:Name="frndsearchbtn" Content="Search Users" HorizontalAlignment="Left" Margin="1034,33,0,0" VerticalAlignment="Top" Click="frndsearchbtn_Click"/>
         <StackPanel HorizontalAlignment="Left" Height="100" Margin="348,640,0,0" VerticalAlignment="Top" Width="100"/>
@@ -38,6 +37,13 @@
             </ListView.ItemTemplate>
         </ListView>
         <Button x:Name="Logoutbtn" Content="Logout" HorizontalAlignment="Left" Height="38" Margin="1185,33,0,0" VerticalAlignment="Top" Width="104" Click="Logoutbtn_Click"/>
+        <Button x:Name="cemailbtn" Content="Change Email" HorizontalAlignment="Left" Margin="135,179,0,0" VerticalAlignment="Top" Width="228" Height="53" Click="cemailbtn_Click" FontSize="25"/>
+        <TextBox x:Name="cmailtxtbox" HorizontalAlignment="Left" Margin="635,182,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="47" Width="352" PlaceholderText="Enter new Email" FontSize="25" Visibility="Collapsed" />
+        <Button x:Name="cmobbtn" Content="Change Mobile number" HorizontalAlignment="Left" Margin="122,255,0,0" VerticalAlignment="Top" Width="314" Height="59" FontSize="25" Click="cmobbtn_Click"/>
+        <TextBox x:Name="cmobtxt" HorizontalAlignment="Left" Margin="635,258,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="53" Width="352" FontSize="25" PlaceholderText="Enter Mobile Number" Visibility="Collapsed" />
+        <Button x:Name="pSave" Content="Save" HorizontalAlignment="Left" Margin="1012,105,0,0" VerticalAlignment="Top" Click="pSave_Click" Visibility="Collapsed"/>
+        <Button x:Name="Esave" Content="Save" HorizontalAlignment="Left" Margin="1012,189,0,0" VerticalAlignment="Top" Click="Esave_Click" Visibility="Collapsed" />
+        <Button x:Name="MSave" Content="Save" HorizontalAlignment="Left" Margin="1012,255,0,0" VerticalAlignment="Top" Click="MSave_Click" Visibility="Collapsed"/>
 
     </Grid>
 </Page>

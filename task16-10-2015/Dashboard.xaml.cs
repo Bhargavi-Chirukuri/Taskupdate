@@ -35,6 +35,7 @@ namespace task16_10_2015
             // tblock.Text = mp.username;
 
         }
+       
         protected override async void OnNavigatedTo(NavigationEventArgs e)
         {
             tblock.Text = !string.IsNullOrEmpty((App.Current as App).NavigateText) ? (App.Current as App).NavigateText : string.Empty;
@@ -66,10 +67,10 @@ namespace task16_10_2015
 
         }
 
-        private async void savebtn_Click(object sender, RoutedEventArgs e)
-        {
-            var path = ApplicationData.Current.LocalFolder.Path + "/mydb.db";
-            var con = new SQLiteAsyncConnection(path);
+        //private async void savebtn_Click(object sender, RoutedEventArgs e)
+        //{
+        //    var path = ApplicationData.Current.LocalFolder.Path + "/mydb.db";
+        //    var con = new SQLiteAsyncConnection(path);
             //person p1 = new person();
             ////p1.password = npwd.Password;
 
@@ -95,16 +96,33 @@ namespace task16_10_2015
            // if (npwd.Password == "" || epwd.Password == "")
            // {
                // var md = new MessageDialog("password field cannot be empty").ShowAsync();
+            //if(npwd.Password !="")
+            //{
+            //    await con.QueryAsync<person>("update person set password='" + npwd.Password + "' where name='" + tblock.Text + "' ");
+            //    var m = new MessageDialog("data updated").ShowAsync();
+            //}
+            //    else if(cmailtxtbox.Text != "")
+            //    {
+            //         await con.QueryAsync<person>("update person set email='" + cmailtxtbox.Text + "' where name='" + tblock.Text + "' ");
+            //    }
 
-                await con.QueryAsync<person>("update person set password='" + npwd.Password + "' where name='" + tblock.Text + "' ");
+            //else if (cmobtxt.Text != "")
+            //{
+            //    await con.QueryAsync<person>("update person set phone='" + cmobtxt.Text + "' where name='" + tblock.Text + "' ");
+
+            //}
+            //var m = new MessageDialog("email updated").ShowAsync();
+
            // }
-           // else
-           // {
-                var m = new MessageDialog("password updated").ShowAsync();
-           // }
+
+
+            //else
+            //{
+            //    var m = new MessageDialog("data updated").ShowAsync();
+            //}
             
 
-        }
+       // }
 
         private void frndsearchbtn_Click(object sender, RoutedEventArgs e)
         {
@@ -126,5 +144,82 @@ namespace task16_10_2015
         {
             Frame.Navigate(typeof(MainPage));
         }
+
+       
+        
+        private  void cemailbtn_Click(object sender, RoutedEventArgs e)
+        {
+            cmailtxtbox.Visibility = Visibility.Visible;
+            Esave.Visibility = Visibility.Visible;
+           // npwd.Visibility = Visibility.Collapsed;
+            //var path = ApplicationData.Current.LocalFolder.Path + "/mydb.db";
+            //var con = new SQLiteAsyncConnection(path);
+           
+            
+        }
+
+        private void changepwdbtn_Click(object sender, RoutedEventArgs e)
+        {
+            npwd.Visibility = Visibility.Visible;
+            pSave.Visibility = Visibility.Visible;
+            //cmailtxtbox.Visibility = Visibility.Collapsed;
+        }
+
+        private void cmobbtn_Click(object sender, RoutedEventArgs e)
+        {
+            cmobtxt.Visibility = Visibility.Visible;
+            MSave.Visibility = Visibility.Visible;
+        }
+
+        private async void pSave_Click(object sender, RoutedEventArgs e)
+        {
+            var path = ApplicationData.Current.LocalFolder.Path + "/mydb.db";
+            var con = new SQLiteAsyncConnection(path);
+           // await con.QueryAsync<person>("update person set password='" + npwd.Password + "' where name='" + tblock.Text + "' ");
+           // var m = new MessageDialog("password updated").ShowAsync();
+            if (npwd.Password == "")
+            {
+                var m3 = new MessageDialog("Password filed cannot be empty").ShowAsync();
+            }
+            else
+            {
+                await con.QueryAsync<person>("update person set password='" + npwd.Password + "' where name='" + tblock.Text + "' ");
+                var m = new MessageDialog("password updated").ShowAsync();
+            }
+        }
+
+        private async void Esave_Click(object sender, RoutedEventArgs e)
+        {
+            var path = ApplicationData.Current.LocalFolder.Path + "/mydb.db";
+            var con = new SQLiteAsyncConnection(path);
+            if (cmailtxtbox.Text == "")
+            {
+                var m4 = new MessageDialog("email field cannot be empty").ShowAsync();
+            }
+            else
+            {
+                await con.QueryAsync<person>("update person set email='" + cmailtxtbox.Text + "' where name='" + tblock.Text + "' ");
+                var m1 = new MessageDialog("email updated").ShowAsync();
+            }
+        }
+
+        private async void MSave_Click(object sender, RoutedEventArgs e)
+        {
+            var path = ApplicationData.Current.LocalFolder.Path + "/mydb.db";
+            var con = new SQLiteAsyncConnection(path);
+            if (cmobtxt.Text == "")
+            {
+                var m5 = new MessageDialog("mobile number field cannot be empty").ShowAsync();
+            }
+            else
+            {
+                await con.QueryAsync<person>("update person set phone='" + cmobtxt.Text + "' where name='" + tblock.Text + "' ");
+                var m2 = new MessageDialog("mobile number updated").ShowAsync();
+            }
+        }
+
+       
+
+      
     }
 }

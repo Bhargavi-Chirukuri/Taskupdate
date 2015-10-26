@@ -45,7 +45,8 @@ namespace task16_10_2015
             if (loginPerson.isConfirmed == 1)
             {
                 List<person> all = new List<person>();
-                all = await con.QueryAsync<person>("select name,email,country,gender,phone from person where name='" + searchboxtxt.Text + "' ");
+                all = await con.QueryAsync<person>("select name,email,country,gender,phone from person where name='" + searchboxtxt.Text + "' AND isConfirmed= 1  ");
+               // var mm1 = new MessageDialog("no matches found").ShowAsync();
                 String res = "";
                 foreach (person a in all)
                 {
